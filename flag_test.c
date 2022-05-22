@@ -1,44 +1,4 @@
-#include <stdio.h>
-#include <stdarg.h>
-char	*int_to_hexa(int n, char c)
-{
-	char	*number;
-	char	temp[4000000];
-	int		i;
-
-	i = 0;
-	while (n % 16)
-	{
-		if (n % 16 > 9)
-		{
-			x = n % 16;
-			x += 87;
-			temp[i] = x;
-		}
-		else
-		{
-			temp[i] = (n % 16) + 48;
-		}
-		n /= 16;
-		i++;
-	}
-	temp[i] = '\0';
-	number = malloc(sizeof(char) * i + 1);
-	i = 0;
-	while (temp[i])
-	{
-		number[i] = temp[i];
-		i++;
-	}
-	number[i] = '\0';
-	if (c == 'X')
-	{
-		toupper(number);
-	}
-	return(number);
-}
-
-int ft_printf_fa(char *fmt, ...)
+int x_printf(char *fmt, ...)
 {
 	va_list ap;
 	char c;
