@@ -1,10 +1,11 @@
 #include <stdarg.h>
 #include <unistd.h>
+#include "./sources/libft.h"
 
-int	ft_printf_char(char *s, ...)
+int	ft_printf_str(char *s, ...)
 {
 	va_list	ap;
-	char	c;
+	char	*s1;
 	int		result;
 
 	result = 0;
@@ -14,8 +15,8 @@ int	ft_printf_char(char *s, ...)
 		if (*s == '%')
 		{
 			s++;
-			c = (char) va_arg(ap, int);
-			write(1, &c, 1);
+			s1 = va_arg(ap, char *);
+			write(1, s1, ft_strlen(s1));
 		}
 		else
 		{
@@ -24,6 +25,7 @@ int	ft_printf_char(char *s, ...)
 		s++;
 		result++;
 	}
+	result += ft_strlen(s1) - 1;
 	return(result);
 }
 
@@ -31,14 +33,14 @@ int	ft_printf_char(char *s, ...)
 
 int	main()
 {
-	char	c;
+	char	*s;
 	int		x;
 
-	c = 'c';
+	s = "Hello world ft_printf";
 	printf("     ____ft_____\n");
-	x = ft_printf_char("hello world, thats my char content: %c\n", c);
+	x = ft_printf_str("Thats my str content: %s\n", s);
 	printf("%i\n     ____ORIGINAL_____\n", x);
-	x = printf("hello world, thats my char content: %c\n", c);
+	x = printf("Thats my str content: %s\n", s);
 	printf("%i\n", x);
 }
 
