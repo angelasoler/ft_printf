@@ -31,7 +31,7 @@ void foo(char *fmt, ...)   /* '...' is C syntax for a variadic function */
 
 int	main()
 {
-	int x = 12354621;
+	int x = ;
 	char c = 'c';
 	char *s = "this is a string";
 
