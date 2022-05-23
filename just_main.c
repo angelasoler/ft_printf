@@ -2,15 +2,11 @@
 
 int	main()
 {
-	// int	x = 42949516515164645;
-	// int y;
+	unsigned int	x = -10;
+	int y;
 	// char *s;
 
-	printf("%x\n", 4294967294);
-	// y = printf("%p\n", &x);
-	// printf("%i\n", y);
+	// printf("%x\n", 4294967294);
+	y = printf("%u\n", x);
+	printf("%i\n", y);
 }
-
-
-5a5ff
-010
