@@ -57,4 +57,3 @@ int	main()
 	x = printf("My int content is: %i\n", d);
 	printf("%i\n", x);
 }
-
