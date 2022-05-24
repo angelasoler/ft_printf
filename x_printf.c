@@ -110,7 +110,7 @@ int	main()
 	// x = -1; return same as uint_max
 	printf("     ____ft_____\n");
 	y = ft_printf_char("Thats my int content returned into x0: %X\n", x);
-	printf("%i\n     ____ORIGINAL_____\n", y);
+	printf("%-10i\n     ____ORIGINAL_____\n", y);
 	y = printf("Thats my int content returned into x0: %X\n", x);
 	printf("%i\n", y);
 }
