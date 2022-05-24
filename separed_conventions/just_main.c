@@ -9,5 +9,5 @@ int	main()
 	// // printf("%x\n", 4294967294);
 	// y = printf("teste:%x\n", x);
 	// printf("%i\n", y);
-	printf("");
+	printf("%%");
 }

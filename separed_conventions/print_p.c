@@ -1,6 +1,6 @@
 #include "x_printf.h"
 
-int	int_to_hexa(unsigned long n)
+int	unsigned_long_to_hexa(unsigned long n)
 {
 	char	temp[20];
 	int		i;
@@ -26,7 +26,7 @@ int	int_to_hexa(unsigned long n)
 int	ft_printf_p(unsigned long a)
 {
 	write(1, "0x", 2);
-	return (int_to_hexa(a) + 2);
+	return (unsigned_long_to_hexa(a) + 2);
 }
 
 #include <stdio.h>
@@ -79,7 +79,7 @@ int	main()
 	printf("%i\n     ____ORIGINAL_____\n", x);
 	x = printf("My return address is: %p\n", &x);
 	printf("%i\n", x);
-	int_to_hexa(140727044389688);
+	unsigned_long_to_hexa(140727044389688);
 }
 // int	main()
 // {

@@ -1,58 +1,58 @@
 #include "./x_printf.h"
 
-void	write_negative_hex(int count, int i, char *s, char c)
-{
-	if (s[0] == '9')
-		s[0] = 'a';
-	else
-		s[0] += 1;
-	while (count)
-	{
-		count--;
-		if (c == 'x')
-			write(1, "f", 1);
-		else
-			write(1, "F", 1);
-	}
-	while (i)
-	{
-		i--;
-		if (c == 'X')
-			s[i] = ft_toupper(s[i]);
-		write(1, &s[i], 1);
-	}
-}
+// void	write_negative_hex(int count, int i, char *s, char c)
+// {
+// 	if (s[0] == '9')
+// 		s[0] = 'a';
+// 	else
+// 		s[0] += 1;
+// 	while (count)
+// 	{
+// 		count--;
+// 		if (c == 'x')
+// 			write(1, "f", 1);
+// 		else
+// 			write(1, "F", 1);
+// 	}
+// 	while (i)
+// 	{
+// 		i--;
+// 		if (c == 'X')
+// 			s[i] = ft_toupper(s[i]);
+// 		write(1, &s[i], 1);
+// 	}
+// }
 
-int	signed_int_to_hexa(int n, char c)
+// int	signed_int_to_hexa(int n, char c)
+// {
+// 	char	temp[8];
+// 	int		i;
+// 	int		count;
+
+// 	i = 0;
+// 	n *= -1;
+// 	count = 8;
+// 	while (n)
+// 	{
+// 		if (n % 16 > 5)
+// 			temp[i] = (15 - (n % 16)) + 48;
+// 		else
+// 			temp[i] = 102 - (n % 16);
+// 		n /= 16;
+// 		i++;
+// 	}
+// 	count -= i;
+// 	write_negative_hex(count, i, temp, c);
+// 	return (7);
+// }
+
+int	int_to_hexa(unsigned int n, char c)
 {
 	char	temp[8];
 	int		i;
-	int		count;
 
-	i = 0;
-	n *= -1;
-	count = 8;
-	while (n)
-	{
-		if (n % 16 > 5)
-			temp[i] = (15 - (n % 16)) + 48;
-		else
-			temp[i] = 102 - (n % 16);
-		n /= 16;
-		i++;
-	}
-	count -= i;
-	write_negative_hex(count, i, temp, c);
-	return (7);
-}
-
-int	int_to_hexa(int n, char c)
-{
-	char	temp[8];
-	int		i;
-
-	if (n < 0)
-		return (signed_int_to_hexa(n, c));
+	// if (n < 0)
+	// 	return (signed_int_to_hexa(n, c));
 	i = 0;
 	while (n)
 	{

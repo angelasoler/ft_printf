@@ -13,4 +13,14 @@ typedef struct s_vars
 	unsigned long	address;
 }	t_vars;
 
+int	ft_printf_int(int d);
+
+int	unsigned_long_to_hexa(unsigned long n);
+
+int	unsig_putnbr(unsigned int n);
+
+int	ft_printf_char(char c, char *s);
+
+int	int_to_hexa(int n, char c);
+
 #endif
