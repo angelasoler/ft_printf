@@ -1,18 +1,20 @@
-NAME=libftprinf.a
+NAME=libftprintf.a
 
 CC=gcc
 
 CFLAGS=-Wall -Werror -Wextra
 
-SRC=ft_printf.c
+SRC=ft_printf.c ft_printf_utils.c
 
 OBJ=$(SRC:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	cd libft && make
-	@ar -r $(NAME) $(OBJ)
+	@cd libft && make
+	@cp libft.a $(NAME)
+	@cd libft && make fclean
+	@ar -r libftprintf.a $(NAME) $(OBJ)
 
 %.o: %.c ft_printf.h 
 	@$(CC) $(CFLAGS) -c $< -o $@
@@ -20,7 +22,7 @@ $(NAME): $(OBJ)
 re: fclean all
 
 fclean: clean
-	rm -rf $(NAME)
+	@rm -rf $(NAME)
 
 clean:
-	rm -rf *.o
+	@rm -rf *.o

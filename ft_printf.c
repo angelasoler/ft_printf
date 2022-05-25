@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-int	manage_conventions(char *s, va_list ap)
+int	manage_conventions(const char *s, va_list ap)
 {
 	t_vars vars;
 	int len;
@@ -11,34 +11,32 @@ int	manage_conventions(char *s, va_list ap)
 		vars.sn = va_arg(ap, int);
 		len += ft_printf_int(vars.sn);
 	}
-	else if (*s == 'u')
+	else if (*s == 'u' || *s == 'x' || *s == 'X')
 	{
 		vars.un = va_arg(ap, unsigned int);
-		len += unsig_putnbr(vars.un);
-	}
-	else if (*s == 'x' || *s == 'X')
-	{
-		vars.un = va_arg(ap, unsigned int);
-		len += int_to_hexa(vars.un);
+		if (*s == 'x' || *s == 'X')
+			len += int_to_hexa(vars.un, *s);
+		else
+			len += unsig_putnbr(vars.un);
 	}
 	else if (*s == 'c')
 	{
-		vars.c = va_arg(ap, char);
-		len += ft_printf_char(c , NULL);
+		vars.c = (char)va_arg(ap, int);
+		len += ft_printf_char(vars.c , 0);
 	}
 	else if (*s == 's')
 	{
-		vars.s = va_arg(ap, char);
-		len += ft_printf_char(NULL, s);
+		vars.s = va_arg(ap, char *);
+		len += ft_printf_char(0, vars.s);
 	}
 	else if (*s == 'p')
 	{
-		vars.s = va_arg(ap, char *);
-		len += ft_printf_char(NULL, s);
+		vars.address = va_arg(ap, unsigned long);
+		len += unsig_long_to_hexa(vars.address);
 	}
 	else if (*s == '%')
 	{
-		write(1, '%', 1);
+		write(1, "%", 1);
 		len++;
 	}
 	return (len);
@@ -55,7 +53,8 @@ int	ft_printf(const char *s, ...)
 	{
 		if (*s == '%')
 		{
-			result += manage_conventions(s++, ap);
+			s++;
+			result += manage_conventions(s, ap);
 		}
 		else
 		{
@@ -65,9 +64,4 @@ int	ft_printf(const char *s, ...)
 		result++;
 	}
 	return(result);
-}
-
-int	main()
-{
-	ft_putnbr_fd(156216, 1);
 }

@@ -12,7 +12,7 @@ int	ft_printf_int(int d)
 	return (n_len - 1);
 }
 
-int	unsigned_long_to_hexa(unsigned long n)
+int	unsig_long_to_hexa(unsigned long n)
 {
 	char	temp[20];
 	int		i;
@@ -61,14 +61,13 @@ int	unsig_putnbr(unsigned int n)
 
 int	ft_printf_char(char c, char *s)
 {
-	if (s)
+	if (*s)
 	{
-		write(1, s1, ft_strlen(s1));
-		return (ft_strlen(s1) - 1)
+		write(1, s, ft_strlen(s));
+		return (ft_strlen(s) - 1);
 	}
 	else
 	{
-		c = va_arg(ap, char);
 		write(1, &c, 1);
 		return (1);
 	}
