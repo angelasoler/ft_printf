@@ -1,5 +1,11 @@
 NAME=libftprintf.a
 
+MAKE_LIBFT=cd libft && make
+
+LIBFT_INTO_LIBFTPRINTF=cp libft.a $(NAME)
+
+FCLEAN_LIBFT=cd libft && make fclean
+
 CC=gcc
 
 CFLAGS=-Wall -Werror -Wextra
@@ -11,13 +17,13 @@ OBJ=$(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@cd libft && make
-	@cp libft.a $(NAME)
-	@cd libft && make fclean
-	@ar -r libftprintf.a $(NAME) $(OBJ)
+	$(MAKE_LIBFT)
+	$(LIBFT_INTO_LIBFTPRINTF)
+	$(FCLEAN_LIBFT)
+	ar -r $(NAME) $(OBJ)
 
 %.o: %.c ft_printf.h 
-	@$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) -g $(CFLAGS) -c $< -o $@
 
 re: fclean all
 

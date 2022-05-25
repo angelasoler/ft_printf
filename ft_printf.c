@@ -35,10 +35,9 @@ int	manage_conventions(const char *s, va_list ap)
 		len += unsig_long_to_hexa(vars.address);
 	}
 	else if (*s == '%')
-	{
 		write(1, "%", 1);
-		len++;
-	}
+	else
+		write(1, s, 1);
 	return (len);
 }
 
@@ -63,5 +62,6 @@ int	ft_printf(const char *s, ...)
 		s++;
 		result++;
 	}
+	va_end(ap);
 	return(result);
 }

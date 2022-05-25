@@ -9,6 +9,7 @@ int	ft_printf_int(int d)
 	n = ft_itoa(d);
 	n_len = ft_strlen(n);
 	write(1, n, n_len);
+	free(n);
 	return (n_len - 1);
 }
 
@@ -28,6 +29,7 @@ int	unsig_long_to_hexa(unsigned long n)
 		n /= 16;
 		i++;
 	}
+	temp[i] = '\0';
 	while (i)
 	{
 		i--;
@@ -61,16 +63,13 @@ int	unsig_putnbr(unsigned int n)
 
 int	ft_printf_char(char c, char *s)
 {
-	if (*s)
+	if (s)
 	{
 		write(1, s, ft_strlen(s));
 		return (ft_strlen(s) - 1);
 	}
 	else
-	{
 		write(1, &c, 1);
-		return (1);
-	}
 	return (0);
 }
 
