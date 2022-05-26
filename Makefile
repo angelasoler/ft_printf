@@ -10,7 +10,7 @@ CC=gcc
 
 CFLAGS=-Wall -Werror -Wextra
 
-SRC=ft_printf.c ft_printf_utils.c
+SRC=ft_printf.c ft_printf_other_convs.c ft_printf_int_convs.c
 
 OBJ=$(SRC:.c=.o)
 

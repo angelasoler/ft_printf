@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: asoler <asoler@student.42sp.org.br>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/26 01:05:04 by asoler            #+#    #+#             */
+/*   Updated: 2022/05/26 01:05:06 by asoler           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FT_PRINTF_H
 # include <stdarg.h>
 # include "./includes/libft.h"
@@ -21,7 +33,9 @@ int	unsig_long_to_hexa(unsigned long n);
 
 int	unsig_putnbr(unsigned int n);
 
-int	ft_printf_char(char c, char *s);
+int	ft_printf_char(char c);
+
+int	ft_printf_str(char *s);
 
 int	int_to_hexa(unsigned int n, char c);
 

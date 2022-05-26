@@ -1,9 +1,35 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: asoler <asoler@student.42sp.org.br>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/26 01:05:19 by asoler            #+#    #+#             */
+/*   Updated: 2022/05/26 03:08:44 by asoler           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-int	manage_conventions(const char *s, va_list ap)
+int	int_conversion(char c, char *conv)
 {
-	t_vars vars;
-	int len;
+	int		i;
+
+	i = 0;
+	while (conv[i])
+	{
+		if (c == conv[i])
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+int	manage_int_convs(const char *s, va_list ap)
+{
+	t_vars	vars;
+	int		len;
 
 	len = 0;
 	if (*s == 'i' || *s == 'd')
@@ -19,20 +45,31 @@ int	manage_conventions(const char *s, va_list ap)
 		else
 			len += unsig_putnbr(vars.un);
 	}
-	else if (*s == 'c')
+	else if (*s == 'p')
+	{
+		vars.address = va_arg(ap, unsigned long);
+		if (vars.address)
+			write(1, "0x", 2);
+		len += unsig_long_to_hexa(vars.address);
+	}
+	return (len);
+}
+
+int	manage_other_convs(const char *s, va_list ap)
+{
+	t_vars	vars;
+	int		len;
+
+	len = 0;
+	if (*s == 'c')
 	{
 		vars.c = (char)va_arg(ap, int);
-		len += ft_printf_char(vars.c , 0);
+		len += ft_printf_char(vars.c);
 	}
 	else if (*s == 's')
 	{
 		vars.s = va_arg(ap, char *);
-		len += ft_printf_char(0, vars.s);
-	}
-	else if (*s == 'p')
-	{
-		vars.address = va_arg(ap, unsigned long);
-		len += unsig_long_to_hexa(vars.address);
+		len += ft_printf_str(vars.s);
 	}
 	else if (*s == '%')
 		write(1, "%", 1);
@@ -48,12 +85,15 @@ int	ft_printf(const char *s, ...)
 
 	result = 0;
 	va_start(ap, s);
-	while(*s)
+	while (*s)
 	{
 		if (*s == '%')
 		{
 			s++;
-			result += manage_conventions(s, ap);
+			if (int_conversion(*s, "iudXxp"))
+				result += manage_int_convs(s, ap);
+			else
+				result += manage_other_convs(s, ap);
 		}
 		else
 		{
@@ -63,5 +103,5 @@ int	ft_printf(const char *s, ...)
 		result++;
 	}
 	va_end(ap);
-	return(result);
+	return (result);
 }

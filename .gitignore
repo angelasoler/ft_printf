@@ -1,1 +1,5 @@
 .gdb*
+separed_convetions
+*.o
+*.a
+main.c
