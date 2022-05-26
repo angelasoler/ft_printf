@@ -6,11 +6,20 @@
 /*   By: asoler <asoler@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 02:22:14 by asoler            #+#    #+#             */
-/*   Updated: 2022/05/26 03:04:07 by asoler           ###   ########.fr       */
+/*   Updated: 2022/05/26 14:01:04 by asoler           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+void	reverse_write_digits(char *s, int count)
+{
+	while (count)
+	{
+		count--;
+		write(1, &s[count], 1);
+	}
+}
 
 int	ft_printf_int(int d)
 {
@@ -45,11 +54,7 @@ int	unsig_long_to_hexa(unsigned long n)
 		i++;
 	}
 	temp[i] = '\0';
-	while (i)
-	{
-		i--;
-		write(1, &temp[i], 1);
-	}
+	reverse_write_digits(temp, i);
 	return (ft_strlen(temp) + 1);
 }
 
@@ -99,10 +104,6 @@ int	int_to_hexa(unsigned int n, char c)
 		i++;
 	}
 	temp[i] = '\0';
-	while (i)
-	{
-		i--;
-		write(1, &temp[i], 1);
-	}
+	reverse_write_digits(temp, i);
 	return (ft_strlen(temp) - 1);
 }
