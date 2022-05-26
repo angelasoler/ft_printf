@@ -6,7 +6,7 @@
 /*   By: asoler <asoler@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 01:05:04 by asoler            #+#    #+#             */
-/*   Updated: 2022/05/26 01:05:06 by asoler           ###   ########.fr       */
+/*   Updated: 2022/05/26 14:21:54 by asoler           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ int	ft_printf(const char *s, ...);
 
 int	ft_printf_int(int d);
 
-int	unsig_long_to_hexa(unsigned long n);
-
-int	unsig_putnbr(unsigned int n);
+int	ft_printf_address(unsigned long n);
 
 int	ft_printf_char(char c);
 
 int	ft_printf_str(char *s);
 
-int	int_to_hexa(unsigned int n, char c);
+int	ft_printf_int_as_hex(unsigned int n, char c);
+
+int	ft_printf_usig_int(unsigned int n);
 
 #endif

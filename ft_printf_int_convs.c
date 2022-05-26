@@ -6,7 +6,7 @@
 /*   By: asoler <asoler@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 02:22:14 by asoler            #+#    #+#             */
-/*   Updated: 2022/05/26 14:01:04 by asoler           ###   ########.fr       */
+/*   Updated: 2022/05/26 14:22:04 by asoler           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	ft_printf_int(int d)
 	return (n_len - 1);
 }
 
-int	unsig_long_to_hexa(unsigned long n)
+int	ft_printf_address(unsigned long n)
 {
 	char	temp[20];
 	int		i;
@@ -58,7 +58,7 @@ int	unsig_long_to_hexa(unsigned long n)
 	return (ft_strlen(temp) + 1);
 }
 
-int	unsig_putnbr(unsigned int n)
+int	ft_printf_usig_int(unsigned int n)
 {
 	int		i;
 	int		r;
@@ -81,7 +81,7 @@ int	unsig_putnbr(unsigned int n)
 	return (r);
 }
 
-int	int_to_hexa(unsigned int n, char c)
+int	ft_printf_int_as_hex(unsigned int n, char c)
 {
 	char	temp[8];
 	int		i;

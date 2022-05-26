@@ -6,7 +6,7 @@
 /*   By: asoler <asoler@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 01:05:19 by asoler            #+#    #+#             */
-/*   Updated: 2022/05/26 03:08:44 by asoler           ###   ########.fr       */
+/*   Updated: 2022/05/26 14:21:39 by asoler           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,16 @@ int	manage_int_convs(const char *s, va_list ap)
 	{
 		vars.un = va_arg(ap, unsigned int);
 		if (*s == 'x' || *s == 'X')
-			len += int_to_hexa(vars.un, *s);
+			len += ft_printf_int_as_hex(vars.un, *s);
 		else
-			len += unsig_putnbr(vars.un);
+			len += ft_printf_usig_int(vars.un);
 	}
 	else if (*s == 'p')
 	{
 		vars.address = va_arg(ap, unsigned long);
 		if (vars.address)
 			write(1, "0x", 2);
-		len += unsig_long_to_hexa(vars.address);
+		len += ft_printf_address(vars.address);
 	}
 	return (len);
 }
