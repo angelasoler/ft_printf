@@ -6,7 +6,7 @@
 /*   By: asoler <asoler@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 01:05:19 by asoler            #+#    #+#             */
-/*   Updated: 2022/05/26 14:21:39 by asoler           ###   ########.fr       */
+/*   Updated: 2022/05/28 14:07:57 by asoler           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,6 @@ int	manage_other_convs(const char *s, va_list ap)
 	}
 	else if (*s == '%')
 		write(1, "%", 1);
-	else
-		write(1, s, 1);
 	return (len);
 }
 
