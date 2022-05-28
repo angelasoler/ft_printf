@@ -6,7 +6,7 @@
 /*   By: asoler <asoler@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 01:05:04 by asoler            #+#    #+#             */
-/*   Updated: 2022/05/28 15:24:25 by asoler           ###   ########.fr       */
+/*   Updated: 2022/05/28 19:15:08 by asoler           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,13 @@ typedef struct s_vars
 	int				sn;
 	unsigned int	un;
 	unsigned long	address;
+	int				len;
+	char			flag;
 }	t_vars;
 
-int	ft_printf(const char *s, ...);
+int	ft_printf_bonus(const char *s, ...);
 
-int	ft_printf_int(int d);
+int	ft_printf_int(int d, char flag);
 
 int	ft_printf_address(unsigned long n);
 
@@ -38,5 +40,7 @@ int	ft_printf_str(char *s);
 int	ft_printf_int_as_hex(unsigned int n, char c);
 
 int	ft_printf_usig_int(unsigned int n);
+
+int	flags(char flag, int n);
 
 #endif

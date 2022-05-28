@@ -6,7 +6,7 @@
 /*   By: asoler <asoler@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 02:22:14 by asoler            #+#    #+#             */
-/*   Updated: 2022/05/28 16:39:54 by asoler           ###   ########.fr       */
+/*   Updated: 2022/05/28 19:07:08 by asoler           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,16 @@ void	reverse_write_digits(char *s, int count)
 	}
 }
 
-int	ft_printf_int(int d)
+int	ft_printf_int(int d, char flag)
 {
 	char	*n;
 	int		n_len;
 
+	n_len = 0;
+	if (flag == '+' || flag == ' ')
+		n_len += flags(flag, d);
 	n = ft_itoa(d);
-	n_len = ft_strlen(n);
+	n_len += ft_strlen(n);
 	write(1, n, n_len);
 	free(n);
 	return (n_len - 1);

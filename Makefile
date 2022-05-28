@@ -26,8 +26,10 @@ $(NAME): $(OBJ)
 	$(FCLEAN_LIBFT)
 	ar -r $(NAME) $(OBJ)
 
-bonus: $(BONUS_OBJ)
-	@make OBJ="$(BONUS_OBJ)"
+bonus: 
+	make OBJ="$(BONUS_OBJ)"
+# $(NAME) $(BONUS_OBJ)
+# 	ar -r $(NAME) $(BONUS_OBJ)
 
 %.o: %.c
 	$(CC) -g $(CFLAGS) -c $< -o $@
