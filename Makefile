@@ -12,7 +12,7 @@ CFLAGS=-Wall -Werror -Wextra
 
 SRC=ft_printf.c ft_printf_other_convs.c ft_printf_int_convs.c
 
-OBJ=$(SRC:.c=.o)
+FTPRINTF_OBJ=$(SRC:.c=.o)
 
 BONUS_SRC=ft_printf_bonus.c ft_printf_other_convs_bonus.c ft_printf_int_convs_bonus.c
 
@@ -20,16 +20,14 @@ BONUS_OBJ=$(BONUS_SRC:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): $(FTPRINTF_OBJ)
 	$(MAKE_LIBFT)
 	$(LIBFT_INTO_LIBFTPRINTF)
 	$(FCLEAN_LIBFT)
-	ar -r $(NAME) $(OBJ)
+	ar -r $(NAME) $(FTPRINTF_OBJ)
 
-bonus: 
-	make OBJ="$(BONUS_OBJ)"
-# $(NAME) $(BONUS_OBJ)
-# 	ar -r $(NAME) $(BONUS_OBJ)
+bonus:
+	make FTPRINTF_OBJ="$(BONUS_OBJ)"
 
 %.o: %.c
 	$(CC) -g $(CFLAGS) -c $< -o $@

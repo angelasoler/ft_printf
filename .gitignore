@@ -2,4 +2,5 @@
 separed_convetions
 *.o
 *.a
-main.c
+main*
+a.out
