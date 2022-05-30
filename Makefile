@@ -14,7 +14,8 @@ SRC=ft_printf.c ft_printf_other_convs.c ft_printf_int_convs.c
 
 FTPRINTF_OBJ=$(SRC:.c=.o)
 
-BONUS_SRC=ft_printf_bonus.c ft_printf_other_convs_bonus.c ft_printf_int_convs_bonus.c
+BONUS_SRC=ft_printf_bonus.c ft_printf_other_convs_bonus.c \
+		  ft_printf_int_convs_bonus.c
 
 BONUS_OBJ=$(BONUS_SRC:.c=.o)
 

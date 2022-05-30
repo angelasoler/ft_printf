@@ -6,11 +6,11 @@
 /*   By: asoler <asoler@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 15:03:03 by asoler            #+#    #+#             */
-/*   Updated: 2022/05/24 14:28:39 by asoler           ###   ########.fr       */
+/*   Updated: 2022/04/06 15:03:04 by asoler           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 size_t	ft_strlen(const char *str)
 {
