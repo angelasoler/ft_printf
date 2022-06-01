@@ -22,16 +22,16 @@ BONUS_OBJ=$(BONUS_SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(FTPRINTF_OBJ)
-	$(MAKE_LIBFT)
-	$(LIBFT_INTO_LIBFTPRINTF)
-	$(FCLEAN_LIBFT)
-	ar -r $(NAME) $(FTPRINTF_OBJ)
+	@$(MAKE_LIBFT)
+	@$(LIBFT_INTO_LIBFTPRINTF)
+	@$(FCLEAN_LIBFT)
+	@ar -r $(NAME) $(FTPRINTF_OBJ)
 
-bonus:
-	make FTPRINTF_OBJ="$(BONUS_OBJ)"
+bonus: $(BONUS_OBJ)
+	@make FTPRINTF_OBJ="$(BONUS_OBJ)"
 
 %.o: %.c
-	$(CC) -g $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 re: fclean all
 

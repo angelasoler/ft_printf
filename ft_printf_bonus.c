@@ -6,7 +6,7 @@
 /*   By: asoler <asoler@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 01:05:19 by asoler            #+#    #+#             */
-/*   Updated: 2022/05/28 19:16:54 by asoler           ###   ########.fr       */
+/*   Updated: 2022/05/31 14:52:13 by asoler           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	flags(char flag, int n)
 	int	result;
 
 	result = 0;
-	if (flag == '#')
+	if (flag == '#' && n)
 	{
 		if ((char)n == 'X')
 			write(1, "0X", 2);
@@ -66,7 +66,7 @@ int	manage_int_convs(const char *s, va_list ap)
 		vars.un = va_arg(ap, unsigned int);
 		if (*s == 'x' || *s == 'X')
 		{
-			if (vars.flag == '#')
+			if (vars.flag == '#' && vars.un)
 				vars.len += flags(vars.flag, (int)*s);
 			vars.len += ft_printf_int_as_hex(vars.un, *s);
 		}
@@ -102,7 +102,7 @@ int	manage_other_convs(const char *s, va_list ap)
 	return (len);
 }
 
-int	ft_printf_bonus(const char *s, ...)
+int	ft_printf(const char *s, ...)
 {
 	va_list	ap;
 	int		result;

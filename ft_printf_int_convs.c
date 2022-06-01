@@ -6,7 +6,7 @@
 /*   By: asoler <asoler@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 02:22:14 by asoler            #+#    #+#             */
-/*   Updated: 2022/05/26 14:22:04 by asoler           ###   ########.fr       */
+/*   Updated: 2022/06/01 00:46:16 by asoler           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int	ft_printf_usig_int(unsigned int n)
 
 int	ft_printf_int_as_hex(unsigned int n, char c)
 {
-	char	temp[8];
+	char	temp[9];
 	int		i;
 
 	if (!n)

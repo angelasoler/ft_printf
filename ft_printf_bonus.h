@@ -6,7 +6,7 @@
 /*   By: asoler <asoler@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 01:05:04 by asoler            #+#    #+#             */
-/*   Updated: 2022/05/30 02:11:36 by asoler           ###   ########.fr       */
+/*   Updated: 2022/06/01 01:36:05 by asoler           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct s_vars
 	char			flag;
 }	t_vars;
 
-int	ft_printf_bonus(const char *s, ...);
+int	ft_printf(const char *s, ...);
 
 int	ft_printf_int(int d, char flag);
 
