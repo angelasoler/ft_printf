@@ -6,7 +6,7 @@
 </h1>
 
 <p align="center">
-     ~~~~~~~   Recode the printf function from libc (just with cspdiuxX% convensions)   ~~~~~~
+     ~~~~~~~   Recode the printf function from libc (just with cspdiuxX% conversions)   ~~~~~~
 </p>
 
 <h3>Subjects studied:</h3>
