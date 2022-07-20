@@ -11,6 +11,8 @@
 
 <h3>Subjects studied:</h3>
 <p>
+  💠 Variadic functions
+
   💠 Convertions and flags of printf function
   
   💠 Organization for bigger projects
