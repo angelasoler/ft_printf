@@ -15,7 +15,7 @@
 
   💠 Convertions and flags of printf function
   
-  💠 Organization for bigger projects
+  💠 Flow program organization
 </p>
 
 
